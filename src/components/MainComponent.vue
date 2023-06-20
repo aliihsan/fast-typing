@@ -18,13 +18,10 @@
       </div>
       <div class="card">
         <div class="card-body bg-secondary">
-          <div class="input-group input-group-lg">
-            <form action="" autocomplete="off" class="form-control">
-              <input type="search" name="q" class="form-control" v-model="writingWord" placeholder="Kelime yazın..."
-                     autocapitalize="off" autocomplete="null">
-              <button class="btn btn-light" type="button" disabled>{{timer}} sn.</button>
-              <button class="btn btn-light" type="button" @click="getWords" :disabled="isRunning">Yenile</button>
-            </form>
+          <div class="input-group input-group-lg mb-3" autocomplete="off">
+            <input id="myInput" type="text" class="form-control" aria-describedby="basic-addon2" v-model="writingWord"
+                   autocapitalize="off" autocomplete="new-password" autofocus="autofocus"/>
+            <span class="input-group-text" id="basic-addon2">{{timer}} sn.</span>
           </div>
         </div>
       </div>
@@ -115,7 +112,6 @@ export default {
     }
   }
 }
-
 </script>
 <style scoped>
 .words{
