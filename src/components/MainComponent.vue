@@ -6,7 +6,6 @@
     <div class="alert alert-primary" v-if="isFinish">
       <h1>Süre Bitti!</h1>
       <h4>Girilen Kelime Sayısı: {{dks}}</h4>
-      <h4>Başarı: %{{dogrulukYuzdesi.toFixed(0)}}</h4>
       <h4>Doğru: {{trueCount}}</h4>
       <h4>Yanlış: {{falseCount}}</h4>
       <button class="btn btn-success mt-2" @click="newGame">Yeni Oyun</button>
@@ -20,9 +19,12 @@
       <div class="card">
         <div class="card-body bg-secondary">
           <div class="input-group input-group-lg">
-            <input type="text" class="form-control" v-model="writingWord" placeholder="Kelime yazın...">
-            <button class="btn btn-light" type="button" disabled>{{timer}} sn.</button>
-            <button class="btn btn-light" type="button" @click="getWords" :disabled="isRunning">Yenile</button>
+            <form action="" autocomplete="off" class="form-control">
+              <input type="search" name="q" class="form-control" v-model="writingWord" placeholder="Kelime yazın..."
+                     autocapitalize="off" autocomplete="null">
+              <button class="btn btn-light" type="button" disabled>{{timer}} sn.</button>
+              <button class="btn btn-light" type="button" @click="getWords" :disabled="isRunning">Yenile</button>
+            </form>
           </div>
         </div>
       </div>
@@ -49,7 +51,8 @@ export default {
       interval: false,
       isRunning: false,
       isFinish: false,
-      wordList: wordList
+      wordList: wordList,
+      readOnly: true
     }
   },
   mounted () {
